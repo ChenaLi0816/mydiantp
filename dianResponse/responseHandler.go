@@ -5,14 +5,14 @@ import (
 	"encoding/json"
 	"mydiantp/dianRequest"
 	"mydiantp/myconsts"
+	"strconv"
 )
 
+
 var requestRecord map[int64][][]byte = make(map[int64][][]byte)
-var sessionCount int64 = 0
+var SessionCount int64 = 0
 
-
-
-
+// This function can invoke corresponding functions to handle requests.
 func RequestHandler(r *dianRequest.DianRequest, sessionId int64, writer *bufio.Writer, reader *bufio.Reader) int64 {
 	switch r.Method {
 
@@ -34,7 +34,7 @@ func RequestHandler(r *dianRequest.DianRequest, sessionId int64, writer *bufio.W
 			return sessionId
 		}
 		setUp(r, writer)
-		return sessionCount
+		return SessionCount
 
 	case myconsts.PLAY:
 		if !isSetUp(sessionId) {
@@ -49,7 +49,8 @@ func RequestHandler(r *dianRequest.DianRequest, sessionId int64, writer *bufio.W
 		}
 		jsonData, _ := json.Marshal(*r)
 		requestRecord[sessionId] = append(requestRecord[sessionId], jsonData)
-		play(writer, reader, r.CSeq)
+		ntp, _ := strconv.Atoi(r.Body["ntp"])
+		play(writer, reader, r.CSeq, ntp)
 		return sessionId
 
 

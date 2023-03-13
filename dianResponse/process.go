@@ -8,6 +8,8 @@ import (
 	"mydiantp/myconsts"
 )
 
+// This file stores the functions that process requests.
+
 func setUp(r *dianRequest.DianRequest, writer *bufio.Writer) {
 	port := r.Body["client_port"]
 	network := r.Body["transport"]
@@ -29,14 +31,14 @@ func setUp(r *dianRequest.DianRequest, writer *bufio.Writer) {
 	//defer dest.Close()
 
 	jsonData, _ := json.Marshal(*r)
-	sessionCount++
-	requestRecord[sessionCount] = append(requestRecord[sessionCount], jsonData)
+	SessionCount++
+	requestRecord[SessionCount] = append(requestRecord[SessionCount], jsonData)
 	data := ResponseSETUP{
 		StatusCode: myconsts.StatusOK,
 		StatusMsg:  "OK",
 		Version:    myconsts.DianVersion,
 		CSeq:       r.CSeq,
-		SessionId:  sessionCount,
+		SessionId:  SessionCount,
 	}
 	write(writer, data)
 	return
@@ -54,7 +56,7 @@ func options(writer *bufio.Writer, CSeq int64){
 	write(writer, data)
 }
 
-func play(writer *bufio.Writer, reader *bufio.Reader, CSeq int64){
+func play(writer *bufio.Writer, reader *bufio.Reader, CSeq int64, ntp int){
 	data := ResponsePLAY{
 		StatusCode: myconsts.StatusOK,
 		StatusMsg:  "OK",
@@ -62,7 +64,7 @@ func play(writer *bufio.Writer, reader *bufio.Reader, CSeq int64){
 		CSeq:       CSeq,
 	}
 	write(writer, data)
-
+	fmt.Printf("准备从第%v秒开始播放...\n", ntp)
 
 	relay, _ := reader.ReadByte()
 	if relay != '1' {
@@ -99,7 +101,6 @@ func teardown(sessionId int64, writer *bufio.Writer, CSeq int64){
 
 func isSetUp(sessionId int64) bool{
 	if sessionId == -1{
-		//fmt.Println("尚未建立起连接")
 		return false
 	}
 	return true
