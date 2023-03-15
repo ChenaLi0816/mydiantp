@@ -2,12 +2,12 @@ package dianResponse
 
 import (
 	"bufio"
+	"client/dianRequest"
+	"client/myconsts"
 	"crypto/md5"
 	"encoding/json"
 	"fmt"
 	"io"
-	"mydiantp/dianRequest"
-	"mydiantp/myconsts"
 	"strconv"
 	"time"
 )

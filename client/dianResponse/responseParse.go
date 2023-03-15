@@ -2,7 +2,7 @@ package dianResponse
 
 import (
 	"bufio"
-	"mydiantp/myconsts"
+	"client/myconsts"
 )
 
 func ResponseHandler(method string, bufRead []byte, reader *bufio.Reader, writer *bufio.Writer) string {

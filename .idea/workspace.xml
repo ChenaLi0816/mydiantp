@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7346c093-314d-469e-baf2-0888970fd820" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dianResponse/responseParse.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dianResponse/responseProcess.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dianRequest/requestPack.go" beforeDir="false" afterPath="$PROJECT_DIR$/dianRequest/requestPack.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dianResponse/requestProcess.go" beforeDir="false" afterPath="$PROJECT_DIR$/dianResponse/process.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dianResponse/responseHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/dianResponse/responseHandler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myconsts/consts.go" beforeDir="false" afterPath="$PROJECT_DIR$/myconsts/consts.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dianResponse/dianResponse.go" beforeDir="false" afterPath="$PROJECT_DIR$/dianResponse/dianResponse.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dianResponse/process.go" beforeDir="false" afterPath="$PROJECT_DIR$/dianResponse/process.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dianResponse/responseHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/dianResponse/requestParse.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dianResponse/responseParse.go" beforeDir="false" afterPath="$PROJECT_DIR$/dianResponse/responseParse.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dianResponse/responseProcess.go" beforeDir="false" afterPath="$PROJECT_DIR$/dianResponse/responseProcess.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/main.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,7 +41,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../My_tiktok" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">

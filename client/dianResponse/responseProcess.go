@@ -2,9 +2,9 @@ package dianResponse
 
 import (
 	"bufio"
+	"client/myconsts"
 	"encoding/json"
 	"fmt"
-	"mydiantp/myconsts"
 )
 
 

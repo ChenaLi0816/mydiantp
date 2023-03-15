@@ -32,7 +32,6 @@ func process(conn net.Conn){
 	defer conn.Close()
 	reader := bufio.NewReader(conn)
 	writer := bufio.NewWriter(conn)
-	var sessionId int64 = -1
 	for true {
 		var buf []byte = make([]byte, 1024)
 		n, errRead := reader.Read(buf)
@@ -49,13 +48,12 @@ func process(conn net.Conn){
 			return
 		}
 		parseJson(buf[:n])
-		shutdown := dianResponse.RequestHandler(&req, sessionId, writer, reader)
+		shutdown := dianResponse.RequestHandler(&req, writer, reader)
 		writer.Flush()
-		if shutdown == 0 {
+		if shutdown  {
 			break
 		}
 
-		sessionId = shutdown
 	}
 }
 

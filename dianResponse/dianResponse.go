@@ -13,7 +13,7 @@ type ResponseSETUP struct {
 	StatusMsg  string            `json:"status_msg"`
 	Version    string            `json:"version"`
 	CSeq       int64             `json:"cseq"`
-	SessionId  int64			 `json:"session_id"`
+	Token 	   string			 `json:"token"`
 }
 
 type ResponsePLAY struct {

@@ -27,6 +27,12 @@
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../mydiantp" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GoProject\client" />
+      <recent name="D:\GoProject\client\dianResponse" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -39,7 +45,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build client/client">
+  <component name="RunManager" selected="Go Build.go build main.go">
     <configuration name="go build client/client" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="client" />
       <working_directory value="$PROJECT_DIR$" />
@@ -69,9 +75,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build main.go" />
         <item itemvalue="Go Build.go build client/client" />
         <item itemvalue="Go Build.go build requestPack.go" />
-        <item itemvalue="Go Build.go build main.go" />
       </list>
     </recent_temporary>
   </component>
