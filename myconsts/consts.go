@@ -6,7 +6,7 @@ const (
 	PLAY        = "PLAY"
 	TEARDOWN    = "TEARDOWN"
 	StatusOK    = 200
-	StatusFail  = 400
+	StatusFail  = 500
 	DianVersion = "0.5"
 	DefaultPort = "8080"
 	ServerAddr  = "127.0.0.1:8080"

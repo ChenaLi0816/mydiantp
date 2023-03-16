@@ -1,5 +1,7 @@
 package dianRequest
 
+// This file stores the functions that process requests.
+
 import (
 	"bufio"
 	"crypto/md5"
@@ -12,12 +14,9 @@ import (
 	"time"
 )
 
-// This file stores the functions that process requests.
-
 var allToken map[string]int64 = make(map[string]int64)
 
 func setUp(r *DianRequest, writer *bufio.Writer) {
-	//port := r.Body["client_port"]
 	network := r.Body["transport"]
 	fmt.Printf("连接到%v,使用%v协议\n", r.Body["addr"], network)
 
@@ -81,7 +80,6 @@ func play(writer *bufio.Writer, reader *bufio.Reader, CSeq int64, ntp int) {
 		return
 	}
 	fmt.Println("收到确认报文，准备发送视频数据..")
-	//net.Dial()
 
 	fmt.Printf("即将从第%v秒开始播放...\n", ntp)
 	videoByte := []byte{48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65,

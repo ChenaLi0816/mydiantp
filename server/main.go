@@ -17,7 +17,7 @@ func main() {
 	if err != nil {
 		fmt.Println("监听失败,错误：", err)
 	}
-	for dianRequest.SessionCount < 5 {
+	for true {
 		client, _ := server.Accept()
 		fmt.Println("已监听到客户端,地址为：", client.RemoteAddr())
 		go process(client)
@@ -37,8 +37,6 @@ func process(conn net.Conn) {
 			fmt.Println("读取数据错误：", errRead)
 			return
 		}
-
-		//fmt.Println("读取到的数据为：", string(buf))
 
 		var req dianRequest.DianRequest
 		if errJson := json.Unmarshal(buf[:n], &req); errJson != nil {

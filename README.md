@@ -5,4 +5,4 @@
 #### instruct form
 - method (url version) [params]
 - (url version) can be replace by "-d" 
-to use the default instruction.(recommended)
+to use the default config.(recommended)
