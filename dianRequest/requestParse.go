@@ -1,31 +1,35 @@
-package dianResponse
+package dianRequest
 
 import (
 	"bufio"
-	"encoding/json"
-	"mydiantp/dianRequest"
+	"mydiantp/dianResponse"
 	"mydiantp/myconsts"
 	"strconv"
+	"strings"
 )
 
-
-var requestRecord map[int64][][]byte = make(map[int64][][]byte)
+var requestRecord map[int64][]*DianRequest = make(map[int64][]*DianRequest)
 var SessionCount int64 = 0
 
 // This function can invoke corresponding functions to handle different requests.
-func RequestHandler(r *dianRequest.DianRequest, writer *bufio.Writer, reader *bufio.Reader) bool {
+func RequestHandler(r *DianRequest, writer *bufio.Writer, reader *bufio.Reader, addr string) bool {
+
 	switch r.Method {
 
 	case myconsts.OPTIONS:
-		//requestRecord[sessionId] = append(requestRecord[sessionId], *r)
+		token, exist := r.Body["token"]
+		if exist && tokenValid(token) {
+			requestRecord[allToken[token]] = append(requestRecord[allToken[token]], r)
+		}
+
 		options(writer, r.CSeq)
 		return false
 
 	case myconsts.SETUP:
-
-		// 是否需要先检验token的存在
-		if tokenValid(r.Body["token"]){
-			data := ResponseSETUP{
+		token, exist := r.Body["token"]
+		if exist && tokenValid(r.Body["token"]) {
+			requestRecord[allToken[token]] = append(requestRecord[allToken[token]], r)
+			data := dianResponse.ResponseSETUP{
 				StatusCode: myconsts.StatusFail,
 				StatusMsg:  "fail, have set up already",
 				Version:    myconsts.DianVersion,
@@ -35,13 +39,15 @@ func RequestHandler(r *dianRequest.DianRequest, writer *bufio.Writer, reader *bu
 			write(writer, data)
 			return false
 		}
+		str := strings.Split(addr, ":")
+		r.Body["addr"] = str[0] + ":" + r.Body["client_port"]
 		setUp(r, writer)
 		return false
 
 	case myconsts.PLAY:
 		token, exist := r.Body["token"]
 		if !exist || !tokenValid(token) {
-			data := ResponsePLAY{
+			data := dianResponse.ResponsePLAY{
 				StatusCode: myconsts.StatusFail,
 				StatusMsg:  "fail, please set up first",
 				Version:    myconsts.DianVersion,
@@ -50,27 +56,24 @@ func RequestHandler(r *dianRequest.DianRequest, writer *bufio.Writer, reader *bu
 			write(writer, data)
 			return false
 		}
-		jsonData, _ := json.Marshal(*r)
-		requestRecord[allToken[token]] = append(requestRecord[allToken[token]], jsonData)
+		requestRecord[allToken[token]] = append(requestRecord[allToken[token]], r)
 		ntp, _ := strconv.Atoi(r.Body["ntp"])
 		play(writer, reader, r.CSeq, ntp)
 		return false
 
-
 	case myconsts.TEARDOWN:
 		token, exist := r.Body["token"]
 		if !exist || !tokenValid(token) {
-			data := ResponseTEARDOWN{
-				StatusCode: myconsts.StatusFail,
-				StatusMsg:  "fail, please set up first",
+			data := dianResponse.ResponseTEARDOWN{
+				StatusCode: myconsts.StatusOK,
+				StatusMsg:  "OK",
 				Version:    myconsts.DianVersion,
 				CSeq:       r.CSeq,
 			}
 			write(writer, data)
-			return false
+			return true
 		}
-		jsonData, _ := json.Marshal(*r)
-		requestRecord[allToken[token]] = append(requestRecord[allToken[token]], jsonData)
+		requestRecord[allToken[token]] = append(requestRecord[allToken[token]], r)
 		teardown(allToken[token], writer, r.CSeq)
 		return true
 	}

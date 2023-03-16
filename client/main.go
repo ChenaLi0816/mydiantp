@@ -2,18 +2,17 @@ package main
 
 import (
 	"bufio"
-	"client/dianRequest"
-	"client/dianResponse"
-	_ "client/dianResponse"
-	"client/myconsts"
 	"encoding/json"
 	"fmt"
+	"mydiantp/dianRequest"
+	"mydiantp/dianResponse"
+	"mydiantp/myconsts"
 	"net"
 	"os"
 	"strings"
 )
 
-func main(){
+func main() {
 	fmt.Println("客户端启动..")
 	conn, err := net.Dial("tcp", myconsts.ServerAddr)
 	if err != nil {
@@ -43,11 +42,10 @@ func main(){
 		}
 		writer.Flush()
 		bufRead := make([]byte, 1024)
-		n,_ := reader.Read(bufRead)
+		n, _ := reader.Read(bufRead)
 		bufRead = bufRead[:n]
 
-		parseJson(bufRead)
-
+		//parseJson(bufRead)
 
 		if tmp := dianResponse.ResponseHandler(data.Method, bufRead, reader, writer); tmp != "-1" {
 			token = tmp
@@ -59,16 +57,17 @@ func main(){
 	}
 	fmt.Println("已断开连接..")
 }
+
 //1 diantp://127.0.0.1:8080 0.5
 func readline() string {
 	reader := bufio.NewReader(os.Stdin)
-	data , _ := reader.ReadString('\n')
+	data, _ := reader.ReadString('\n')
 	return data[:len(data)-1]
 }
 
 func parseJson(buf []byte) {
 	fmt.Println("响应为：")
-	str := string(buf[1:len(buf)-1])
+	str := string(buf[1 : len(buf)-1])
 	field := strings.SplitN(str, ",", 5)
 	for index, value := range field {
 		if index == 4 {

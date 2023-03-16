@@ -2,12 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7346c093-314d-469e-baf2-0888970fd820" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/client/main.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/main.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.idea/client.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/client/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/client/responsePro.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dianRequest/dianRequest.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dianRequest/requestPack.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dianResponse/dianResponse.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dianResponse/process.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dianResponse/requestParse.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dianResponse/requestProcess.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dianResponse/responseHandler.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dianResponse/responseParse.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dianResponse/responseProcess.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/go.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/client/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/myconsts/consts.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dianRequest/dianRequest.go" beforeDir="false" afterPath="$PROJECT_DIR$/dianRequest/dianRequest.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dianRequest/requestPack.go" beforeDir="false" afterPath="$PROJECT_DIR$/dianRequest/requestPack.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dianResponse/dianResponse.go" beforeDir="false" afterPath="$PROJECT_DIR$/dianResponse/dianResponse.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dianResponse/process.go" beforeDir="false" afterPath="$PROJECT_DIR$/dianResponse/process.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dianResponse/responseHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/dianResponse/requestParse.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dianResponse/responseParse.go" beforeDir="false" afterPath="$PROJECT_DIR$/dianResponse/responseParse.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dianResponse/process.go" beforeDir="false" afterPath="$PROJECT_DIR$/dianRequest/requestProcess.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dianResponse/requestParse.go" beforeDir="false" afterPath="$PROJECT_DIR$/dianRequest/requestParse.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dianResponse/responseProcess.go" beforeDir="false" afterPath="$PROJECT_DIR$/dianResponse/responseProcess.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myconsts/consts.go" beforeDir="false" afterPath="$PROJECT_DIR$/myconsts/consts.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/main.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,9 +67,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GoProject\mydiantp\dianRequest" />
       <recent name="D:\GoProject\mydiantp\dianResponse" />
       <recent name="D:\GoProject\mydiantp\myconsts" />
-      <recent name="D:\GoProject\mydiantp\dianRequest" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -91,8 +113,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build main.go" />
-        <item itemvalue="Go Build.go build responseHandler.go" />
         <item itemvalue="Go Build.go build main.go (1)" />
+        <item itemvalue="Go Build.go build responseHandler.go" />
       </list>
     </recent_temporary>
   </component>
